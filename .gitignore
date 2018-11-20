@@ -1,0 +1,8 @@
+*.o
+*.so
+
+*.pcd
+*.bag
+
+# directory
+data/
