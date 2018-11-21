@@ -12,7 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6eff7689-52ff-4ce2-93ac-90f317166f03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cylinder_segmentation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cylinder_segmentation.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pclPlay.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/pclPlay.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pclPlay.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/pclPlay.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/src/cmake-build-debug/" />
@@ -35,15 +41,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="8009" />
-          <entry key="h" value="1142" />
+          <entry key="cpp" value="8312" />
+          <entry key="gitignore" value="25" />
+          <entry key="h" value="1182" />
           <entry key="txt" value="513" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="513" />
-          <entry key="ObjectiveC" value="9151" />
+          <entry key="ObjectiveC" value="9494" />
+          <entry key="PLAIN_TEXT" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -52,8 +60,9 @@
           <entry key="Makefile" value="2" />
           <entry key="c" value="1" />
           <entry key="cpp" value="34" />
-          <entry key="h" value="38" />
-          <entry key="hpp" value="9" />
+          <entry key="gitignore" value="1" />
+          <entry key="h" value="41" />
+          <entry key="hpp" value="10" />
           <entry key="txt" value="10" />
         </counts>
       </usages-collector>
@@ -61,8 +70,8 @@
         <counts>
           <entry key="CMakeLists.txt" value="10" />
           <entry key="Disassembly" value="2" />
-          <entry key="ObjectiveC" value="82" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="ObjectiveC" value="86" />
+          <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -73,25 +82,16 @@
         <entry file="file://$PROJECT_DIR$/src/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1501">
-              <caret line="79" column="54" selection-start-line="79" selection-start-column="54" selection-end-line="79" selection-end-column="54" />
+            <state relative-caret-position="1305">
+              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -102,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+            <state relative-caret-position="247">
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
               <folding>
                 <element signature="e#91#108#0" expanded="true" />
               </folding>
@@ -114,12 +114,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cylinder_segmentation.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1843">
-              <caret line="101" column="34" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+            <state relative-caret-position="333">
+              <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
               <folding>
                 <element signature="e#41#75#0" expanded="true" />
                 <element signature="e#2251#2547#0" />
                 <element signature="e#3707#4178#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cylinder_segmentation.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="40" column="41" lean-forward="true" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+              <folding>
+                <element signature="e#126#143#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,25 +162,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cylinder_segmentation.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
-              <folding>
-                <element signature="e#126#143#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pclPlay.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="61" column="62" selection-start-line="61" selection-start-column="62" selection-end-line="61" selection-end-column="62" />
+            <state relative-caret-position="428">
+              <caret line="116" selection-start-line="116" selection-end-line="116" />
               <folding>
                 <element signature="e#82#102#0" expanded="true" />
+                <element signature="e#1418#2589#0" />
                 <element signature="e#2591#2920#0" />
+                <element signature="e#2959#3527#0" />
               </folding>
             </state>
           </provider>
@@ -177,8 +179,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pclPlay.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+            <state relative-caret-position="314">
+              <caret line="20" column="83" selection-start-line="20" selection-start-column="83" selection-end-line="20" selection-end-column="83" />
               <folding>
                 <element signature="e#98#126#0" expanded="true" />
               </folding>
@@ -231,18 +233,19 @@
         <option value="$PROJECT_DIR$/src/openGLHelper.h" />
         <option value="$PROJECT_DIR$/src/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/rsPlay.cpp" />
-        <option value="$PROJECT_DIR$/src/main.h" />
         <option value="$PROJECT_DIR$/src/cylinder_segmentation.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/pclPlay.h" />
         <option value="$PROJECT_DIR$/src/pclPlay.cpp" />
+        <option value="$PROJECT_DIR$/src/main.h" />
         <option value="$PROJECT_DIR$/src/cylinder_segmentation.cpp" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
     <option name="y" value="-4" />
     <option name="width" value="1855" />
@@ -275,7 +278,7 @@
             <path>
               <item name="FirstTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="FirstTest" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -284,7 +287,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="third&#9;FILE&#9;file:///home/yudong/CLionProjects/FirstTest/third-party&#10;draw_poin&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="radius&#9;null&#9;null&#10;third&#9;FILE&#9;file:///home/yudong/CLionProjects/FirstTest/third-party&#10;draw_poin&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/CMakeLists.txt" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -335,12 +338,12 @@
       <workItem from="1542386237585" duration="19149000" />
       <workItem from="1542472921558" duration="10556000" />
       <workItem from="1542493123339" duration="25120000" />
-      <workItem from="1542646699841" duration="34808000" />
+      <workItem from="1542646699841" duration="43203000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175651000" />
+    <option name="totallyTimeSpent" value="184046000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -352,24 +355,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="1076" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19868995" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19868995" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32985386" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.106694564" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17677824" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3935282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32985386" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.2807933" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.28033474" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.43319416" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3294979" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.3294979" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -598,16 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/openGLHelper.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2451">
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
-          <folding>
-            <element signature="e#309#340#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/boost/smart_ptr/shared_ptr.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -643,65 +636,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pclPlay.h">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding>
-            <element signature="e#98#126#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cylinder_segmentation.h">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
-          <folding>
-            <element signature="e#126#143#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pclPlay.cpp">
+    <entry file="file://$PROJECT_DIR$/src/openGLHelper.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="61" column="62" selection-start-line="61" selection-start-column="62" selection-end-line="61" selection-end-column="62" />
+        <state relative-caret-position="304">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
-            <element signature="e#82#102#0" expanded="true" />
-            <element signature="e#2591#2920#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding>
-            <element signature="e#91#108#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cylinder_segmentation.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1843">
-          <caret line="101" column="34" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
-          <folding>
-            <element signature="e#41#75#0" expanded="true" />
-            <element signature="e#2251#2547#0" />
-            <element signature="e#3707#4178#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rsPlay.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2166">
-          <caret line="114" column="36" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
-          <folding>
-            <element signature="e#41#60#0" expanded="true" />
+            <element signature="e#312#343#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -716,27 +670,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+    <entry file="file://$PROJECT_DIR$/src/rsPlay.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1501">
-          <caret line="79" column="54" selection-start-line="79" selection-start-column="54" selection-end-line="79" selection-end-column="54" />
+        <state relative-caret-position="2166">
+          <caret line="114" column="36" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#41#60#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/pcl-1.7/pcl/impl/point_types.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="1464" column="14" selection-start-line="1464" selection-start-column="14" selection-end-line="1464" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/src/pclPlay.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="314">
+          <caret line="20" column="83" selection-start-line="20" selection-start-column="83" selection-end-line="20" selection-end-column="83" />
+          <folding>
+            <element signature="e#98#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pclPlay.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+          <folding>
+            <element signature="e#82#102#0" expanded="true" />
+            <element signature="e#1418#2589#0" />
+            <element signature="e#2591#2920#0" />
+            <element signature="e#2959#3527#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cylinder_segmentation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="40" column="41" lean-forward="true" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+          <folding>
+            <element signature="e#126#143#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+          <folding>
+            <element signature="e#91#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cylinder_segmentation.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
+          <folding>
+            <element signature="e#41#75#0" expanded="true" />
+            <element signature="e#2251#2547#0" />
+            <element signature="e#3707#4178#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1305">
+          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -103,7 +103,20 @@ void pclpcl::voxelGridFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud,
               << " data points" << std::endl;
 }
 
+std::vector<double> pclpcl::getCentroid(const pcl::PointCloud<pcl::PointXYZ> &points) {
+    size_t size = points.size();
+    std::vector<double> centroid = {0, 0, 0};    // x, y, z
+    for (auto point : points) {
+        centroid[0] += point.x;
+        centroid[1] += point.y;
+        centroid[2] += point.z;
+    }
+    centroid[0] /= size;
+    centroid[1] /= size;
+    centroid[2] /= size;
 
+    return centroid;
+}
 
 
 

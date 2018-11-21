@@ -8,6 +8,7 @@
 
 #include <pcl/point_types.h>
 #include <pcl/visualization/pcl_visualizer.h>
+#include <vector>
 
 namespace pclpcl {
     void savePCD(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, const std::string & filename);
@@ -17,6 +18,7 @@ namespace pclpcl {
     void passThroughFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud);
     void voxelGridFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud_in,
                          pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_out = nullptr);
+    std::vector<double> getCentroid(const pcl::PointCloud<pcl::PointXYZ> & points);
 }
 
 

@@ -61,7 +61,7 @@ void cylinder_segmentation::segPlane() {
     seg.setNormalDistanceWeight (0.1);
     seg.setMethodType (pcl::SAC_RANSAC);
     seg.setMaxIterations (100);
-    seg.setDistanceThreshold (0.01);
+    seg.setDistanceThreshold (0.02);
     seg.setInputCloud (cloud_voxelized);
     seg.setInputNormals (cloud_normals);
     // Obtain the plane inliers indices and coefficients
@@ -105,7 +105,7 @@ void cylinder_segmentation::segCylinder() {
 
     // Obtain the cylinder inliers and coefficients
     seg.segment (*inliers_cylinder, *coefficients_cylinder);
-    std::cerr << "Cylinder coefficients: " << *coefficients_cylinder << std::endl;
+//    std::cerr << "Cylinder coefficients: " << *coefficients_cylinder << std::endl;
 
     extract.setInputCloud (cloud_filtered2);
     extract.setIndices (inliers_cylinder);
@@ -124,7 +124,7 @@ void cylinder_segmentation::segNextCylinder() {
     seg.setInputCloud(cloud_filtered2);
     seg.setInputNormals(cloud_normals2);
     seg.segment(*inliers_cylinder, *coefficients_cylinder);
-    std::cerr << "Next Cylinder radius: " << *coefficients_cylinder << std::endl;
+//    std::cerr << "Cylinder coefficients: " << *coefficients_cylinder << std::endl;
 
     extract.setInputCloud(cloud_filtered2);
     extract.setIndices(inliers_cylinder);
