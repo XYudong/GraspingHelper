@@ -24,23 +24,10 @@ int main() {
     pcl::PointCloud<PointT>::Ptr cy_cloud;
 
     string path_to_data = "../../data/output/";
-    reader.read(path_to_data + "test_37.pcd", *cloud);      // fail: 34, 35
-
-//    auto start = high_resolution_clock::now();
+    reader.read(path_to_data + "test_5.pcd", *cloud);
 
     auto cy_seg = doCySegmentation(cloud);
     cy_cloud = cy_seg.cloud_cylinder;
-
-//    auto stop = high_resolution_clock::now();
-//    auto duration = duration_cast<milliseconds>(stop - start);
-//    cout << "Cylinder segmentation task takes: " << duration.count() << " milliseconds" << endl;
-
-//    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer = pclpcl::viewportsVis(cy_seg.cloud_plane, cy_cloud);
-//    while (!viewer->wasStopped ())
-//    {
-//        viewer->spinOnce (100);
-//        boost::this_thread::sleep (boost::posix_time::microseconds (100000));
-//    }
 
     return 0;
 }
@@ -57,25 +44,25 @@ cylinder_segmentation doCySegmentation(pcl::PointCloud<PointT>::Ptr & cloud) {
     cy_seg.segPlane();
     cy_seg.segCylinder();
 
-    // display two data set at the same time
-    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer = pclpcl::viewportsVis(cy_seg.cloud_plane);
+    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer = pclpcl::simpleVis();
 
-    for (int i = 0; cy_seg.cloud_cylinder->points.size() > 900; i++) {
+    for (int i = 0; i <= 2; i++) {
         auto cy_cloud = cy_seg.cloud_cylinder;  // Ptr
         std::cout << "#" << i << " Cylinder PointCloud has: " << cy_cloud -> points.size () << " data points." << std::endl;
-        std::cerr << "Cylinder coefficients: " << *(cy_seg.coefficients_cylinder) << std::endl;
+//        std::cerr << "Cylinder coefficients: " << *(cy_seg.coefficients_cylinder) << std::endl;
 
         vector<double> cy_centroid = pclpcl::getCentroid(*cy_cloud);
         cout << "Centroid of cylinder:" << '\n';
         cout << cy_centroid[0] << '\n' << cy_centroid[1] << '\n' << cy_centroid[2] << '\n' << endl;
 
-        std::string portID = "sample cloud2_" + std::to_string(i);
+        std::string portID = "cy_cloud_" + std::to_string(i);
         pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color(cy_cloud, 50+80*i, 180-30*i, 100+30*i);
-        viewer->addPointCloud<pcl::PointXYZ> (cy_cloud, single_color, portID, 0);
+        viewer->addPointCloud<pcl::PointXYZ> (cy_cloud, single_color, portID);
         viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, portID);
+        if (i<2) {
+            cy_seg.segNextCylinder();
+        }
 
-//        pclpcl::statisticalFilter(cy_seg.cloud_filtered2);
-        cy_seg.segNextCylinder();
     }
 
 //    auto rem_cloud = cy_seg.cloud_filtered2;
@@ -88,7 +75,7 @@ cylinder_segmentation doCySegmentation(pcl::PointCloud<PointT>::Ptr & cloud) {
     auto duration = duration_cast<milliseconds>(stop - start);
     cout << "\nCylinder segmentation task takes: " << duration.count() << " milliseconds" << endl;
 
-    std::cout << "\nabandoned Cylinder PointCloud has: " << cy_seg.cloud_cylinder->points.size () << " data points." << std::endl;
+//    std::cout << "\nabandoned Cylinder PointCloud has: " << cy_seg.cloud_cylinder->points.size () << " data points." << std::endl;
 
     while (!viewer->wasStopped ())
     {

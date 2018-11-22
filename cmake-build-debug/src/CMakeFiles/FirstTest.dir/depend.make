@@ -1451,6 +1451,7 @@ src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o: ../src/openGLHelper.h
 src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o: ../src/pclPlay.h
 src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o: ../src/rsPlay.cpp
 src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o: ../src/rsPlay.h
+src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o: ../third-party/stb_easy_font.h
 src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o: /usr/include/eigen3/Eigen/Cholesky
 src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o: /usr/include/eigen3/Eigen/Core
 src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o: /usr/include/eigen3/Eigen/Dense

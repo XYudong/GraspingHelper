@@ -72,7 +72,7 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> pclpcl::viewportsVis(
 
 
     viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "sample cloud1");
-    viewer->addCoordinateSystem (1.0);
+    viewer->addCoordinateSystem (0.5);  // scale of the three axes
 
     return viewer;
 
@@ -96,7 +96,7 @@ void pclpcl::voxelGridFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud,
     // Create the filtering object
     pcl::VoxelGrid<pcl::PointXYZ> sor;
     sor.setInputCloud (cloud);
-    sor.setLeafSize (0.002f, 0.002f, 0.002f);
+    sor.setLeafSize (0.004f, 0.004f, 0.004f);
     sor.filter ((cloud_out) ? *cloud_out : *cloud);
 
     std::cerr << "PointCloud after Voxel filtering: " << ((cloud_out) ? cloud_out : cloud)->points.size()
@@ -118,6 +118,20 @@ std::vector<double> pclpcl::getCentroid(const pcl::PointCloud<pcl::PointXYZ> &po
     return centroid;
 }
 
+boost::shared_ptr<pcl::visualization::PCLVisualizer> pclpcl::simpleVis(
+        pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud_ptr) {
+    /* viewer for just single port
+     * */
+    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
+    viewer->setBackgroundColor(0.3, 0.3, 0.3);
+    if (cloud_ptr) {
+        viewer->addPointCloud<pcl::PointXYZ> (cloud_ptr, "background_cloud");
+        viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 2, "background_cloud");
+    }
+    viewer->addCoordinateSystem(0.3);
+    viewer->initCameraParameters();
+    return viewer;
+}
 
 
 

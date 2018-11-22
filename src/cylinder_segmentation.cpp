@@ -71,9 +71,9 @@ void cylinder_segmentation::segPlane() {
     // Extract the planar inliers from the input cloud
     extract.setInputCloud (cloud_voxelized);
     extract.setIndices (inliers_plane);
-    extract.setNegative (false);
 
-    extract.filter (*cloud_plane);      // could be commented later to save time
+//    extract.setNegative (false);
+//    extract.filter (*cloud_plane);      // could be commented later to save time
 }
 
 void cylinder_segmentation::writePlane(const std::string & plane_file) {
@@ -121,6 +121,7 @@ void cylinder_segmentation::segNextCylinder() {
     extract_normals.setIndices (inliers_cylinder);
     extract_normals.filter (*cloud_normals2);
 
+    seg.setDistanceThreshold (0.04);
     seg.setInputCloud(cloud_filtered2);
     seg.setInputNormals(cloud_normals2);
     seg.segment(*inliers_cylinder, *coefficients_cylinder);
