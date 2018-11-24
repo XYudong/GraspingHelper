@@ -29,6 +29,8 @@ pcl/segmentation/sac_segmentation.h
 -
 pcl/features/normal_3d_omp.h
 -
+pcl/segmentation/region_growing.h
+-
 
 /home/yudong/CLionProjects/FirstTest/src/main.cpp
 main.h
@@ -45,6 +47,8 @@ librealsense2/rs.hpp
 -
 rsPlay.h
 /home/yudong/CLionProjects/FirstTest/src/rsPlay.h
+pcl/visualization/cloud_viewer.h
+-
 
 /home/yudong/CLionProjects/FirstTest/src/main.h
 string
@@ -2410,6 +2414,26 @@ pcl/common/copy_point.h
 pcl/search/impl/search.hpp
 -
 
+/usr/include/pcl-1.7/pcl/segmentation/impl/region_growing.hpp
+pcl/segmentation/region_growing.h
+-
+pcl/search/search.h
+-
+pcl/search/kdtree.h
+-
+pcl/point_cloud.h
+-
+pcl/point_types.h
+-
+queue
+-
+list
+-
+cmath
+-
+time.h
+-
+
 /usr/include/pcl-1.7/pcl/segmentation/impl/sac_segmentation.hpp
 pcl/segmentation/sac_segmentation.h
 -
@@ -2458,6 +2482,24 @@ pcl/sample_consensus/sac_model_sphere.h
 pcl/sample_consensus/sac_model_normal_sphere.h
 -
 pcl/sample_consensus/sac_model_stick.h
+-
+
+/usr/include/pcl-1.7/pcl/segmentation/region_growing.h
+pcl/pcl_base.h
+-
+pcl/search/search.h
+-
+pcl/point_cloud.h
+-
+pcl/point_types.h
+-
+list
+-
+math.h
+-
+time.h
+-
+pcl/segmentation/impl/region_growing.hpp
 -
 
 /usr/include/pcl-1.7/pcl/segmentation/sac_segmentation.h
@@ -2514,6 +2556,12 @@ boost/foreach.hpp
 boost/date_time/posix_time/posix_time.hpp
 -
 boost/filesystem.hpp
+-
+
+/usr/include/pcl-1.7/pcl/visualization/cloud_viewer.h
+pcl/visualization/pcl_visualizer.h
+-
+string
 -
 
 /usr/include/pcl-1.7/pcl/visualization/common/actor_map.h

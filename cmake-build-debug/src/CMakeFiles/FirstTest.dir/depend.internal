@@ -350,7 +350,9 @@ src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.o
  /usr/include/pcl-1.7/pcl/search/organized.h
  /usr/include/pcl-1.7/pcl/search/pcl_search.h
  /usr/include/pcl-1.7/pcl/search/search.h
+ /usr/include/pcl-1.7/pcl/segmentation/impl/region_growing.hpp
  /usr/include/pcl-1.7/pcl/segmentation/impl/sac_segmentation.hpp
+ /usr/include/pcl-1.7/pcl/segmentation/region_growing.h
  /usr/include/pcl-1.7/pcl/segmentation/sac_segmentation.h
  /usr/include/pcl-1.7/pcl/visualization/area_picking_event.h
  /usr/include/pcl-1.7/pcl/visualization/boost.h
@@ -856,10 +858,13 @@ src/CMakeFiles/FirstTest.dir/main.cpp.o
  /usr/include/pcl-1.7/pcl/search/organized.h
  /usr/include/pcl-1.7/pcl/search/pcl_search.h
  /usr/include/pcl-1.7/pcl/search/search.h
+ /usr/include/pcl-1.7/pcl/segmentation/impl/region_growing.hpp
  /usr/include/pcl-1.7/pcl/segmentation/impl/sac_segmentation.hpp
+ /usr/include/pcl-1.7/pcl/segmentation/region_growing.h
  /usr/include/pcl-1.7/pcl/segmentation/sac_segmentation.h
  /usr/include/pcl-1.7/pcl/visualization/area_picking_event.h
  /usr/include/pcl-1.7/pcl/visualization/boost.h
+ /usr/include/pcl-1.7/pcl/visualization/cloud_viewer.h
  /usr/include/pcl-1.7/pcl/visualization/common/actor_map.h
  /usr/include/pcl-1.7/pcl/visualization/common/common.h
  /usr/include/pcl-1.7/pcl/visualization/common/impl/common.hpp

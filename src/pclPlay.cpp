@@ -21,7 +21,7 @@ void pclpcl::savePCD(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, const st
     std::cerr << "Saved " << cloud -> points.size () << " data points to .pcd." << std::endl;
 }
 
-void pclpcl::statisticalFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud) {
+void pclpcl::statisticalFilter(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, pcl::PointIndices::Ptr & res_indices) {
     std::cout << "cloud before statistical filtering" << std::endl;
 //    std::cerr << &(*cloud) << '\n';
 //    std::cerr << &cloud << '\n';
@@ -31,20 +31,9 @@ void pclpcl::statisticalFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud) {
     pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
     sor.setInputCloud (cloud);
     sor.setMeanK (50);
-    sor.setStddevMulThresh (0.5);
-    sor.filter (*cloud);
-
-    std::cout << "Cloud after filtering: " << std::endl;
-    std::cout << *cloud << std::endl;
-
-    // display two data set at the same time
-//    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer = viewportsVis(cloud, cloud_filtered);
-//    while (!viewer->wasStopped ())
-//    {
-//        viewer->spinOnce (100);
-//        boost::this_thread::sleep (boost::posix_time::microseconds (100000));
-//    }
-
+    sor.setStddevMulThresh (0.5);       // means distance threshold is 0.5*sigma
+    sor.filter(res_indices->indices);
+//    sor.filter (*cloud);
 
 }
 
@@ -96,7 +85,7 @@ void pclpcl::voxelGridFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud,
     // Create the filtering object
     pcl::VoxelGrid<pcl::PointXYZ> sor;
     sor.setInputCloud (cloud);
-    sor.setLeafSize (0.004f, 0.004f, 0.004f);
+    sor.setLeafSize (0.006f, 0.006f, 0.006f);       // powerful in accelerating computation
     sor.filter ((cloud_out) ? *cloud_out : *cloud);
 
     std::cerr << "PointCloud after Voxel filtering: " << ((cloud_out) ? cloud_out : cloud)->points.size()
@@ -133,6 +122,35 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> pclpcl::simpleVis(
     return viewer;
 }
 
+void pclpcl::doRegionGrowing(cylinder_segmentation &cy_seg) {
+        // main workflow of segmentation using RegionGrowing
+        // I think this method is hard to segment properly because of outliers collections
+
+//    auto start = high_resolution_clock::now();
+
+    cout << "\nSegmentation Input Cloud:\n" << *(cy_seg.cloud) << endl;
+    cy_seg.passThroughFilter();
+    cy_seg.downSampling();
+    cy_seg.estNormals();
+
+    cy_seg.segPlane();
+    cy_seg.regionGrowing();
+
+    auto reg = cy_seg.reg;
+
+    pcl::PointCloud <pcl::PointXYZRGB>::Ptr colored_cloud = reg.getColoredCloud ();
+    pcl::visualization::CloudViewer viewer ("Cluster viewer");
+    viewer.showCloud(colored_cloud);
+
+//    auto stop = high_resolution_clock::now();
+//    auto duration = duration_cast<milliseconds>(stop - start);
+//    cout << "\nCylinder segmentation task takes: " << duration.count() << " milliseconds" << endl;
+
+    while (!viewer.wasStopped ())
+    {
+    }
+
+}
 
 
 

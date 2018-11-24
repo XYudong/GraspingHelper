@@ -17,6 +17,7 @@
 #include <pcl/sample_consensus/model_types.h>
 #include <pcl/segmentation/sac_segmentation.h>
 #include <pcl/features/normal_3d_omp.h>
+#include <pcl/segmentation/region_growing.h>
 
 typedef pcl::PointXYZ PointT;
 
@@ -33,6 +34,7 @@ class cylinder_segmentation {
     pcl::search::KdTree<PointT>::Ptr tree;
 
 public:
+    pcl::RegionGrowing<pcl::PointXYZ, pcl::Normal> reg;
     // Datasets
     pcl::PointCloud<PointT>::Ptr cloud;
     pcl::PointCloud<PointT>::Ptr cloud_filtered;
@@ -54,6 +56,8 @@ public:
     void segCylinder();
     void writeCylinder(const std::string & cylinder_file);
     void segNextCylinder();
+    void regionGrowing();
+    void statFilter(pcl::PointCloud<PointT>::Ptr & cloud_filtered, pcl::PointCloud<pcl::Normal>::Ptr & cloud_normals);
 };
 
 

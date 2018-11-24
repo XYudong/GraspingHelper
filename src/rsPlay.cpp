@@ -7,7 +7,7 @@
 #include <algorithm>    // min, max
 #include <string>
 
-#include <librealsense2/rs.hpp> // Include RealSense Cross Platform API
+#include <librealsense2/rs.hpp>     // Include RealSense Cross Platform API
 #include "openGLHelper.h"         // Include short list of convenience functions for rendering
 #include "pclPlay.h"
 
