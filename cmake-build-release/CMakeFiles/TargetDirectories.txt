@@ -1,0 +1,5 @@
+/home/yudong/CLionProjects/FirstTest/cmake-build-release/CMakeFiles/rebuild_cache.dir
+/home/yudong/CLionProjects/FirstTest/cmake-build-release/CMakeFiles/edit_cache.dir
+/home/yudong/CLionProjects/FirstTest/cmake-build-release/src/CMakeFiles/rebuild_cache.dir
+/home/yudong/CLionProjects/FirstTest/cmake-build-release/src/CMakeFiles/edit_cache.dir
+/home/yudong/CLionProjects/FirstTest/cmake-build-release/src/CMakeFiles/FirstTest.dir

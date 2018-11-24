@@ -12,21 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eff7689-52ff-4ce2-93ac-90f317166f03" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/FirstTest.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/FirstTest.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/FirstTest.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/FirstTest.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/FirstTest.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/FirstTest.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/FirstTest" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/FirstTest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cylinder_segmentation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cylinder_segmentation.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cylinder_segmentation.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cylinder_segmentation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pclPlay.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/pclPlay.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pclPlay.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/pclPlay.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rsPlay.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsPlay.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="6eff7689-52ff-4ce2-93ac-90f317166f03" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/src/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -52,14 +38,14 @@
           <entry key="cpp" value="10580" />
           <entry key="gitignore" value="25" />
           <entry key="h" value="1361" />
-          <entry key="txt" value="870" />
+          <entry key="txt" value="883" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="521" />
           <entry key="ObjectiveC" value="11941" />
-          <entry key="PLAIN_TEXT" value="374" />
+          <entry key="PLAIN_TEXT" value="387" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -71,6 +57,7 @@
           <entry key="gitignore" value="1" />
           <entry key="h" value="48" />
           <entry key="hpp" value="12" />
+          <entry key="md" value="1" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
@@ -79,7 +66,7 @@
           <entry key="CMakeLists.txt" value="11" />
           <entry key="Disassembly" value="4" />
           <entry key="ObjectiveC" value="95" />
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -146,7 +133,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pclPlay.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1132">
@@ -157,6 +144,11 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -322,7 +314,7 @@
       <workItem from="1542472921558" duration="10556000" />
       <workItem from="1542493123339" duration="25120000" />
       <workItem from="1542646699841" duration="68256000" />
-      <workItem from="1543035555651" duration="16154000" />
+      <workItem from="1543035555651" duration="16594000" />
     </task>
     <task id="LOCAL-00001" summary="segmentation parameters tuning">
       <created>1542822513704</created>
@@ -338,11 +330,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542927842806</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="further voxelized PointCloud, 0.4-0.6 sec/frame;&#10;added statistical filter; added regionGrowing segmentation;">
+      <created>1543093969430</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1543093969430</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225253000" />
+    <option name="totallyTimeSpent" value="225693000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -357,20 +356,20 @@
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49924812" visible="true" weight="0.16157205" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49924812" visible="true" weight="0.16157205" />
       <window_info id="Structure" order="1" sideWeight="0.50075185" side_tool="true" weight="0.16157205" />
       <window_info id="Favorites" order="2" sideWeight="0.50075185" side_tool="true" weight="0.16157205" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32985386" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24686192" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24686192" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.44874477" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32985386" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3294979" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" visible="true" weight="0.3043933" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49945414" weight="0.3043933" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.4330544" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50054586" side_tool="true" weight="0.3043933" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" weight="0.3294979" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.3294979" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -409,7 +408,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="segmentation parameters tuning" />
     <MESSAGE value="further voxelize PointCloud and optimize code to accelerate computation, achieve 0.5-0.8 sec/frame" />
-    <option name="LAST_COMMIT_MESSAGE" value="further voxelize PointCloud and optimize code to accelerate computation, achieve 0.5-0.8 sec/frame" />
+    <MESSAGE value="further voxelized PointCloud, 0.4-0.6 sec/frame;&#10;added statistical filter; added regionGrowing segmentation;" />
+    <option name="LAST_COMMIT_MESSAGE" value="further voxelized PointCloud, 0.4-0.6 sec/frame;&#10;added statistical filter; added regionGrowing segmentation;" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file:///usr/include/c++/5/bits/stl_vector.h">
@@ -722,6 +722,9 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
