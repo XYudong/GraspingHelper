@@ -59,7 +59,7 @@ void doCySegmentation(cylinder_segmentation & cy_seg) {
     // initialize viewer
     boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer = pclpcl::simpleVis();
     // for debugging visualization
-    viewer->addPointCloud<pcl::PointXYZ> (cy_seg.cloud_filtered2, "debug_cloud");
+//    viewer->addPointCloud<pcl::PointXYZ> (cy_seg.cloud, "debug_cloud");
 
     int cy_num = 2;     // # of cylinders(start from 0) to extract provided by user
     for (int i = 0; i <= cy_num; i++) {
@@ -70,6 +70,7 @@ void doCySegmentation(cylinder_segmentation & cy_seg) {
         vector<double> cy_centroid = pclpcl::getCentroid(*cy_cloud);
         cout << "Centroid of cylinder:" << '\n';
         cout << cy_centroid[0] << '\n' << cy_centroid[1] << '\n' << cy_centroid[2] << '\n' << endl;
+
         //visualization
         std::string portID = "cy_cloud_" + std::to_string(i);
         pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color(cy_cloud, 50+80*i, 180-30*i, 100+30*i);

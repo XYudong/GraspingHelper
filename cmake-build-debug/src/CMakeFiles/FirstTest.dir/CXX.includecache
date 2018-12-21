@@ -61,12 +61,14 @@ cylinder_segmentation.h
 /home/yudong/CLionProjects/FirstTest/src/cylinder_segmentation.h
 
 /home/yudong/CLionProjects/FirstTest/src/pclPlay.h
+vector
+-
 pcl/point_types.h
 -
 pcl/visualization/pcl_visualizer.h
 -
-vector
--
+cylinder_segmentation.h
+/home/yudong/CLionProjects/FirstTest/src/cylinder_segmentation.h
 
 /home/yudong/CLionProjects/FirstTest/src/rsPlay.h
 string

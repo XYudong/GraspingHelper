@@ -15,13 +15,14 @@
 #include <pcl/filters/voxel_grid.h>
 
 
-
 void pclpcl::savePCD(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, const std::string & filename) {
     pcl::io::savePCDFileASCII(filename, *cloud);
     std::cerr << "Saved " << cloud -> points.size () << " data points to .pcd." << std::endl;
 }
 
 void pclpcl::statisticalFilter(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, pcl::PointIndices::Ptr & res_indices) {
+    /* output indices of resulting cloud
+     */
     std::cout << "cloud before statistical filtering" << std::endl;
 //    std::cerr << &(*cloud) << '\n';
 //    std::cerr << &cloud << '\n';
@@ -64,8 +65,6 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> pclpcl::viewportsVis(
     viewer->addCoordinateSystem (0.5);  // scale of the three axes
 
     return viewer;
-
-
 }
 
 void pclpcl::passThroughFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud) {
