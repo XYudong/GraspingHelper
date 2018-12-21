@@ -1,6 +1,7 @@
 //
 // Created by yudong on 11/16/18.
 //
+//Functions from Realsense library
 
 #include "rsPlay.h"
 
