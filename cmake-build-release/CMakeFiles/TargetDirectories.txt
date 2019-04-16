@@ -1,5 +1,0 @@
-/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/CMakeFiles/rebuild_cache.dir
-/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/CMakeFiles/edit_cache.dir
-/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src/CMakeFiles/rebuild_cache.dir
-/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src/CMakeFiles/edit_cache.dir
-/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src/CMakeFiles/3DSegmentation.dir
