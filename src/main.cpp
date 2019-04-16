@@ -9,13 +9,12 @@
 #include <pcl/visualization/cloud_viewer.h>
 #include <ostream>
 
-
 using namespace std;
 typedef pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> PointColor;
 typedef pcl::PointXYZ PointT;
 
 void processPlanes(const pcl::PointCloud<PointT>::Ptr& in_cloud);
-void writePCD(const std::string& filename, const pcl::PointCloud<PointT>::Ptr& cloud);
+
 
 int main() {
   std::cout << "Hello, World!" << std::endl;
@@ -38,11 +37,12 @@ int main() {
 
 //    auto seger = PlaneSegmentation(cloud);
 //    seger.passThroughFilter();
-//    writePCD(path, seger.cloud);
+//    pclpcl::writePCD(seger.cloud, path);
   }
 
   return 0;
 }
+
 
 void processPlanes(const pcl::PointCloud<PointT>::Ptr& in_cloud) {
     //visualization
@@ -54,6 +54,12 @@ void processPlanes(const pcl::PointCloud<PointT>::Ptr& in_cloud) {
   seger.estNormals();
 
   seger.segPlane();
+  pclpcl::statisticalFilter(seger.cloud_filtered, seger.inliers_plane);
+  seger.extractNormals(false);
+  seger.extractCloud(false, seger.cloud_filtered, seger.cloud_filtered);
+  cout << "after statisticalFilter: " << endl;
+  cout << *(seger.cloud_filtered) << endl;
+
 //    PointColor single_color(seger.cloud_filtered, 50+80, 180-30, 100+30);
 //    std::string portID = "cy_cloud_" + std::to_string(1);
 //    viewer->addPointCloud<pcl::PointXYZ>(seger.cloud_filtered, single_color, portID);
@@ -75,6 +81,7 @@ void processPlanes(const pcl::PointCloud<PointT>::Ptr& in_cloud) {
 //    std::string objID = "cloud_" + std::to_string(2);
 //    viewer->addPointCloud<pcl::PointXYZ>(seger.cloud_plane, obj_color, objID);
 
+
   vector<pcl::PointIndices> clusters;
   seger.regionGrowing(seger.cloud_normals, seger.cloud_filtered, clusters);
   cout << "# of clusters: " << clusters.size() << endl;
@@ -83,19 +90,13 @@ void processPlanes(const pcl::PointCloud<PointT>::Ptr& in_cloud) {
 //    std::string objID = "cloud_" + std::to_string(2);
 //    viewer->addPointCloud<pcl::PointXYZ>(cloud, obj_color, objID);
 
-  pcl::PointCloud <pcl::PointXYZRGB>::Ptr colored_cloud = seger.reg.getColoredCloud ();
+  pcl::PointCloud <pcl::PointXYZRGB>::Ptr colored_cloud = seger.reg.getColoredCloud();
   pcl::visualization::CloudViewer viewer ("Cluster viewer");
   viewer.showCloud(colored_cloud);
   while (!viewer.wasStopped()) {
 //      viewer->spinOnce (100);   // ms
 //      boost::this_thread::sleep (boost::posix_time::microseconds (100));
   }
-}
-
-void writePCD(const std::string& filename, const pcl::PointCloud<PointT>::Ptr& cloud) {
-  pcl::PCDWriter writer;
-  writer.write(filename, *cloud, false);
-  std::cerr << "Saved " << (cloud->points).size() << " data points to " << filename << std::endl;
 }
 
 

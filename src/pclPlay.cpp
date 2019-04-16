@@ -15,27 +15,25 @@
 #include <pcl/filters/voxel_grid.h>
 
 
-void pclpcl::savePCD(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, const std::string & filename) {
+void pclpcl::writePCD(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, const std::string & filename) {
     pcl::io::savePCDFileASCII(filename, *cloud);
     std::cerr << "Saved " << cloud -> points.size () << " data points to .pcd" << std::endl;
 }
 
-void pclpcl::statisticalFilter(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, pcl::PointIndices::Ptr & res_indices) {
+void pclpcl::statisticalFilter(const pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud,
+                               pcl::PointIndices::Ptr& inliers_idx) {
     /* output indices of resulting cloud
      */
-    std::cout << "cloud before statistical filtering" << std::endl;
-//    std::cerr << &(*cloud) << '\n';
-//    std::cerr << &cloud << '\n';
+    std::cout << "cloud before statistical filtering:" << std::endl;
     std::cout << *cloud << std::endl;
 
     // Create the filtering object
     pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
     sor.setInputCloud (cloud);
-    sor.setMeanK (50);
-    sor.setStddevMulThresh (0.5);       // means distance threshold is 0.5*sigma
-    sor.filter(res_indices->indices);
-//    sor.filter (*cloud);
-
+    sor.setMeanK (30);
+    sor.setStddevMulThresh (0.5);       // means distance threshold is 1*sigma
+    sor.filter(inliers_idx->indices); // use it to extract both point cloud and its normals
+//    sor.filter(*cloud);
 }
 
 boost::shared_ptr<pcl::visualization::PCLVisualizer> pclpcl::viewportsVis(
@@ -65,16 +63,6 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> pclpcl::viewportsVis(
     viewer->addCoordinateSystem (0.5);  // scale of the three axes
 
     return viewer;
-}
-
-void pclpcl::passThroughFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud) {
-    // Create the filtering object
-    pcl::PassThrough<pcl::PointXYZ> pass;
-    pass.setInputCloud (cloud);
-    pass.setFilterFieldName ("z");
-    pass.setFilterLimits (0.0, 0.8);
-    //pass.setFilterLimitsNegative (true);
-    pass.filter (*cloud);
 }
 
 void pclpcl::voxelGridFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud,

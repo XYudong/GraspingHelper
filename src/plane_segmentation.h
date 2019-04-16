@@ -44,6 +44,10 @@ public:
   void downSampling();
   void estNormals();
   void segPlane();
+  void extractNormals(bool negative);
+  void extractCloud(bool negative,
+      pcl::PointCloud<PointT>::Ptr& in,
+      pcl::PointCloud<PointT>::Ptr& out);
   void regionGrowing(
       pcl::PointCloud <pcl::Normal>::Ptr in_normals,
       pcl::PointCloud<pcl::PointXYZ>::Ptr in_cloud,

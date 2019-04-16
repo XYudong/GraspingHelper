@@ -13,15 +13,15 @@
 
 
 namespace pclpcl {
-    void savePCD(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, const std::string & filename);
+    void writePCD(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, const std::string & filename);
 
     boost::shared_ptr<pcl::visualization::PCLVisualizer> viewportsVis(
             pcl::PointCloud<pcl::PointXYZ>::ConstPtr ptr1, pcl::PointCloud<pcl::PointXYZ>::ConstPtr ptr2 = nullptr );
     boost::shared_ptr<pcl::visualization::PCLVisualizer> simpleVis (
             pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud_ptr = nullptr);
 
-    void statisticalFilter(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, pcl::PointIndices::Ptr & res_indices);
-    void passThroughFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud);
+    void statisticalFilter(const pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud,
+                           pcl::PointIndices::Ptr& inliers_idx);
     void voxelGridFilter(pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud_in,
                          pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_out = nullptr);
 

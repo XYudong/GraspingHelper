@@ -49,38 +49,48 @@ void PlaneSegmentation::estNormals() {
 
 void PlaneSegmentation::segPlane() {
   // Create the segmentation object for the planar model and set all the parameters
+  auto input_cloud = cloud_filtered->empty() ? cloud_voxelized : cloud_filtered;
   seg.setOptimizeCoefficients (true);
   seg.setModelType (pcl::SACMODEL_PLANE);
   seg.setNormalDistanceWeight (0.1);
   seg.setMethodType (pcl::SAC_RANSAC);
   seg.setMaxIterations (100);
   seg.setDistanceThreshold (0.015);
-  seg.setInputCloud (cloud_filtered->empty() ? cloud_voxelized : cloud_filtered);
+  seg.setInputCloud (input_cloud);
   seg.setInputNormals (cloud_normals);
   // Obtain the plane inliers indices and coefficients
   seg.segment (*inliers_plane, *coefficients_plane);
 
-  // remove normals corresponding to the segmented plane
-  extract_normals.setNegative(true);
+  extractNormals(true);
+
+  // Extract the planar inliers from the input cloud into cloud_plane
+  extractCloud(false, input_cloud, cloud_plane);
+
+  // Remove the planar inliers, extract the rest into cloud_filtered
+  extractCloud(true, input_cloud, cloud_filtered);
+}
+
+void PlaneSegmentation::extractNormals(bool negative) {
+  // if negative == true, remove normals corresponding to the inliers_plane
+  extract_normals.setNegative(negative);
   extract_normals.setInputCloud(cloud_normals);
   extract_normals.setIndices(inliers_plane);
   extract_normals.filter(*cloud_normals);
+}
 
-  extract.setInputCloud (cloud_filtered->empty() ? cloud_voxelized : cloud_filtered);
-  extract.setIndices (inliers_plane);
-  // Extract the planar inliers from the input cloud into cloud_plane{
-  extract.setNegative (false);
-  extract.filter (*cloud_plane);
-
-  // Remove the planar inliers, extract the rest into cloud_filtered
-  extract.setNegative (true);
-  extract.filter (*cloud_filtered);
+void PlaneSegmentation::extractCloud(bool negative,
+                                     pcl::PointCloud<PointT>::Ptr& in,
+                                     pcl::PointCloud<PointT>::Ptr& out) {
+  extract.setInputCloud(in);
+  extract.setIndices(inliers_plane);
+  extract.setNegative(negative);
+  extract.filter(*out);
 }
 
 void PlaneSegmentation::regionGrowing(
     pcl::PointCloud<pcl::Normal>::Ptr in_normals,
     pcl::PointCloud<pcl::PointXYZ>::Ptr in_cloud,
-    std::vector <pcl::PointIndices>& out_clusters) {
+    std::vector<pcl::PointIndices>& out_clusters) {
   // RegionGrowing segmentation
   reg.setMinClusterSize (50);
   reg.setMaxClusterSize (5000);
