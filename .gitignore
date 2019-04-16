@@ -9,4 +9,5 @@
 # directory
 data/*
 results_demo/*
-cmake-*/*
+cmake-build-debug/*
+cmake-build-release/*
