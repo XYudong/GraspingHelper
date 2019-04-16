@@ -11,13 +11,24 @@
 #include <pcl/io/pcd_io.h>
 #include <pcl/visualization/cloud_viewer.h>
 #include <pcl/filters/statistical_outlier_removal.h>
-#include <pcl/filters/passthrough.h>
 #include <pcl/filters/voxel_grid.h>
+#include <pcl/filters/extract_indices.h>
 
 
 void pclpcl::writePCD(const pcl::PointCloud<pcl::PointXYZ>::Ptr & cloud, const std::string & filename) {
     pcl::io::savePCDFileASCII(filename, *cloud);
     std::cerr << "Saved " << cloud -> points.size () << " data points to .pcd" << std::endl;
+}
+
+void pclpcl::extractNormals(bool negative, const pcl::PointIndices::Ptr &idx,
+                            const pcl::PointCloud<pcl::Normal>::Ptr &in,
+                            const pcl::PointCloud<pcl::Normal>::Ptr &out) {
+    // if negative == true, remove normals corresponding to the idx_plane
+    pcl::ExtractIndices<pcl::Normal> extract_normals;
+    extract_normals.setNegative(negative);
+    extract_normals.setInputCloud(in);
+    extract_normals.setIndices(idx);
+    extract_normals.filter(*out);
 }
 
 void pclpcl::statisticalFilter(const pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud,

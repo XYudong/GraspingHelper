@@ -11,9 +11,8 @@ PlaneSegmentation::PlaneSegmentation(const pcl::PointCloud<PointT>::Ptr &cloud)
 , cloud_voxelized (new pcl::PointCloud<PointT>)
 , cloud_normals (new pcl::PointCloud<pcl::Normal>)
 , cloud_filtered (new pcl::PointCloud<PointT>)
-//, cloud_normals2 (new pcl::PointCloud<pcl::Normal>)
 , coefficients_plane (new pcl::ModelCoefficients)
-, inliers_plane (new pcl::PointIndices)
+, idx_plane (new pcl::PointIndices)
 , cloud_plane (new pcl::PointCloud<PointT>) {
   // constructor
   this -> cloud = cloud;
@@ -43,64 +42,74 @@ void PlaneSegmentation::estNormals() {
   norm_est.setSearchMethod (tree);
   norm_est.setInputCloud (cloud_voxelized);
   norm_est.setSearchSurface(cloud);
-  norm_est.setKSearch(35);
+  norm_est.setKSearch(40);                // better to not less than 30
   norm_est.compute (*cloud_normals);
 }
 
-void PlaneSegmentation::segPlane() {
+void PlaneSegmentation::segPlane(bool normal) {
   // Create the segmentation object for the planar model and set all the parameters
   auto input_cloud = cloud_filtered->empty() ? cloud_voxelized : cloud_filtered;
-  seg.setOptimizeCoefficients (true);
-  seg.setModelType (pcl::SACMODEL_PLANE);
-  seg.setNormalDistanceWeight (0.1);
-  seg.setMethodType (pcl::SAC_RANSAC);
-  seg.setMaxIterations (100);
-  seg.setDistanceThreshold (0.015);
-  seg.setInputCloud (input_cloud);
-  seg.setInputNormals (cloud_normals);
-  // Obtain the plane inliers indices and coefficients
-  seg.segment (*inliers_plane, *coefficients_plane);
+
+  fitPlane(normal, cloud_normals, input_cloud);
 
   extractNormals(true);
 
   // Extract the planar inliers from the input cloud into cloud_plane
-  extractCloud(false, input_cloud, cloud_plane);
+  extractCloud(false, idx_plane, input_cloud, cloud_plane);
 
   // Remove the planar inliers, extract the rest into cloud_filtered
-  extractCloud(true, input_cloud, cloud_filtered);
+  extractCloud(true, idx_plane, input_cloud, cloud_filtered);
+}
+
+void PlaneSegmentation::fitPlane(bool normal,
+                                 pcl::PointCloud <pcl::Normal>::Ptr& in_normals,
+                                 pcl::PointCloud<PointT>::Ptr& in_cloud) {
+  seg.setModelType (normal ? pcl::SACMODEL_NORMAL_PLANE : pcl::SACMODEL_PLANE);
+  seg.setOptimizeCoefficients (true);
+  seg.setMethodType (pcl::SAC_RANSAC);
+  seg.setMaxIterations (100);
+  seg.setNormalDistanceWeight (0.05);     // w
+  seg.setDistanceThreshold (0.03);        // Euclidean distance, with weight (1-w)
+  seg.setInputCloud (in_cloud);
+  seg.setInputNormals (in_normals);
+
+  // Obtain the plane inliers indices and coefficients
+  seg.segment (*idx_plane, *coefficients_plane);
 }
 
 void PlaneSegmentation::extractNormals(bool negative) {
-  // if negative == true, remove normals corresponding to the inliers_plane
+  // if negative == true, remove normals corresponding to the idx_plane
   extract_normals.setNegative(negative);
   extract_normals.setInputCloud(cloud_normals);
-  extract_normals.setIndices(inliers_plane);
+  extract_normals.setIndices(idx_plane);
   extract_normals.filter(*cloud_normals);
 }
 
 void PlaneSegmentation::extractCloud(bool negative,
-                                     pcl::PointCloud<PointT>::Ptr& in,
-                                     pcl::PointCloud<PointT>::Ptr& out) {
+                                     const pcl::PointIndices::Ptr& idx,
+                                     const pcl::PointCloud<PointT>::Ptr& in,
+                                     const pcl::PointCloud<PointT>::Ptr& out) {
+  // if negative == false, extract pointcloud corresponding idx_plane from "in" into "out"
   extract.setInputCloud(in);
-  extract.setIndices(inliers_plane);
+  extract.setIndices(idx);
   extract.setNegative(negative);
   extract.filter(*out);
 }
 
 void PlaneSegmentation::regionGrowing(
-    pcl::PointCloud<pcl::Normal>::Ptr in_normals,
-    pcl::PointCloud<pcl::PointXYZ>::Ptr in_cloud,
+    pcl::PointCloud<pcl::Normal>::Ptr& in_normals,
+    pcl::PointCloud<pcl::PointXYZ>::Ptr& in_cloud,
     std::vector<pcl::PointIndices>& out_clusters) {
   // RegionGrowing segmentation
   reg.setMinClusterSize (50);
   reg.setMaxClusterSize (5000);
   reg.setSearchMethod (tree);
-  reg.setNumberOfNeighbours (20);
+  reg.setNumberOfNeighbours (15);
   reg.setInputCloud (in_cloud);
   //reg.setIndices (indices);
   reg.setInputNormals (in_normals);
   reg.setSmoothnessThreshold (10.0f / 180.0f * (float)M_PI);
-  reg.setCurvatureThreshold (15.0);
+  reg.setCurvatureThreshold (3.0);
 
   reg.extract(out_clusters);
 }

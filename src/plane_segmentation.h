@@ -37,20 +37,24 @@ public:
   pcl::PointCloud<PointT>::Ptr cloud_filtered;
   pcl::PointCloud<PointT>::Ptr cloud_plane;
   pcl::ModelCoefficients::Ptr coefficients_plane;
-  pcl::PointIndices::Ptr inliers_plane;
+  pcl::PointIndices::Ptr idx_plane;
 
   explicit PlaneSegmentation(const pcl::PointCloud<PointT>::Ptr& cloud);
   void passThroughFilter();
   void downSampling();
   void estNormals();
-  void segPlane();
+  void segPlane(bool normal);
+  void fitPlane(bool normal,
+                pcl::PointCloud <pcl::Normal>::Ptr& in_normals,
+                pcl::PointCloud<PointT>::Ptr& in_cloud);
   void extractNormals(bool negative);
   void extractCloud(bool negative,
-      pcl::PointCloud<PointT>::Ptr& in,
-      pcl::PointCloud<PointT>::Ptr& out);
+                    const pcl::PointIndices::Ptr& idx,
+                    const pcl::PointCloud<PointT>::Ptr& in,
+                    const pcl::PointCloud<PointT>::Ptr& out);
   void regionGrowing(
-      pcl::PointCloud <pcl::Normal>::Ptr in_normals,
-      pcl::PointCloud<pcl::PointXYZ>::Ptr in_cloud,
+      pcl::PointCloud <pcl::Normal>::Ptr& in_normals,
+      pcl::PointCloud<pcl::PointXYZ>::Ptr& in_cloud,
       std::vector <pcl::PointIndices>& out_clusters);
 };
 

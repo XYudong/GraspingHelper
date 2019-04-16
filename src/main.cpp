@@ -8,6 +8,7 @@
 
 #include <pcl/visualization/cloud_viewer.h>
 #include <ostream>
+#include <cstdlib>
 
 using namespace std;
 typedef pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> PointColor;
@@ -45,57 +46,92 @@ int main() {
 
 
 void processPlanes(const pcl::PointCloud<PointT>::Ptr& in_cloud) {
-    //visualization
-//    auto viewer = pclpcl::simpleVis();
-
+  // initialization
+  auto viewer = pclpcl::simpleVis();
   auto seger = PlaneSegmentation(in_cloud);
   seger.passThroughFilter();
   seger.downSampling();
   seger.estNormals();
 
-  seger.segPlane();
-  pclpcl::statisticalFilter(seger.cloud_filtered, seger.inliers_plane);
+  // segment desktop plane(i.e. the largest one)
+  seger.segPlane(false);
+  pclpcl::statisticalFilter(seger.cloud_filtered, seger.idx_plane);
   seger.extractNormals(false);
-  seger.extractCloud(false, seger.cloud_filtered, seger.cloud_filtered);
+  seger.extractCloud(false, seger.idx_plane, seger.cloud_filtered, seger.cloud_filtered);
   cout << "after statisticalFilter: " << endl;
   cout << *(seger.cloud_filtered) << endl;
 
-//    PointColor single_color(seger.cloud_filtered, 50+80, 180-30, 100+30);
-//    std::string portID = "cy_cloud_" + std::to_string(1);
-//    viewer->addPointCloud<pcl::PointXYZ>(seger.cloud_filtered, single_color, portID);
-//    auto plane0_coeffs = seger.coefficients_plane->values;
-//    auto plane0_normal = vector<float>(plane0_coeffs.begin(), plane0_coeffs.begin() + 3);
+  // desktop visualization
+  PointColor single_color(seger.cloud_filtered, 204, 230, 220);
+  std::string portID = "objects_cloud_" + std::to_string(0);
+  viewer->addPointCloud<pcl::PointXYZ>(seger.cloud_filtered, single_color, portID);
+  // desktop surface normal
+  const auto plane0_coeffs = seger.coefficients_plane->values;
+  const auto plane0_normal = vector<float>(plane0_coeffs.begin(), plane0_coeffs.begin() + 3);
 
-//    float angle = 20;
-//    while (angle > 10) {
-//      seger.segPlane();
-//
-//      auto plane1_coeffs = seger.coefficients_plane->values;
-//      auto plane1_normal = vector<float>(plane1_coeffs.begin(), plane1_coeffs.begin() + 3);
-//      angle = acos(dotProduct<float>(plane0_normal, plane1_normal));
-//      angle = radianToDegree(angle);
-//      cout << "angle of two planes: " << angle << endl;
-//    }
-//
-//    PointColor obj_color(seger.cloud_plane, 50, 180, 100);
-//    std::string objID = "cloud_" + std::to_string(2);
-//    viewer->addPointCloud<pcl::PointXYZ>(seger.cloud_plane, obj_color, objID);
-
-
+  // Region Growing segmentation
   vector<pcl::PointIndices> clusters;
   seger.regionGrowing(seger.cloud_normals, seger.cloud_filtered, clusters);
   cout << "# of clusters: " << clusters.size() << endl;
 
-//    PointColor obj_color(seger.cloud_plane, 50, 180, 100);
-//    std::string objID = "cloud_" + std::to_string(2);
-//    viewer->addPointCloud<pcl::PointXYZ>(cloud, obj_color, objID);
+  int count = 1;
+  auto idx_plane = pcl::PointIndices::Ptr(new pcl::PointIndices);
+  auto normal_plane = pcl::PointCloud<pcl::Normal>::Ptr(new pcl::PointCloud<pcl::Normal>);
+  for (auto& cluster : clusters) {
+    if (cluster.indices.size() < 100) {
+      continue;
+    }
+    *idx_plane = cluster;
+    seger.extractCloud(false, idx_plane,
+                       seger.cloud_filtered,
+                       seger.cloud_plane);
+    pclpcl::extractNormals(false, idx_plane, seger.cloud_normals, normal_plane);
+    seger.fitPlane(false, normal_plane, seger.cloud_plane);
 
-  pcl::PointCloud <pcl::PointXYZRGB>::Ptr colored_cloud = seger.reg.getColoredCloud();
-  pcl::visualization::CloudViewer viewer ("Cluster viewer");
-  viewer.showCloud(colored_cloud);
-  while (!viewer.wasStopped()) {
-//      viewer->spinOnce (100);   // ms
-//      boost::this_thread::sleep (boost::posix_time::microseconds (100));
+    auto plane1_coeffs = seger.coefficients_plane->values;
+    auto plane1_normal = vector<float>(plane1_coeffs.begin(), plane1_coeffs.begin() + 3);
+    float angle = acos(dotProduct<float>(plane0_normal, plane1_normal));
+    angle = radianToDegree(angle);
+
+    if (angle < 15) {
+      PointColor obj_color(seger.cloud_plane, 60 + 40 * count, 100, 100+30);
+      std::string objID = "plane_cloud_" + std::to_string(count++);
+      viewer->addPointCloud<pcl::PointXYZ>(seger.cloud_plane, obj_color, objID);
+
+      cout << "angle of two planes: " << angle
+      << "; # of points: " << (seger.cloud_plane)->size() << endl;
+    }
+
+  }
+
+//  float angle = 20;
+//  int i = 1;
+//  while (angle > 10) {
+//    if ((seger.cloud_filtered)->size() < 100) {
+//      break;
+//    }
+//    seger.segPlane(true);
+//
+//    auto plane1_coeffs = seger.coefficients_plane->values;
+//    auto plane1_normal = vector<float>(plane1_coeffs.begin(), plane1_coeffs.begin() + 3);
+//    angle = acos(dotProduct<float>(plane0_normal, plane1_normal));
+//    angle = radianToDegree(angle);
+//    cout << "angle of two planes: " << angle << "; # of points: " << (seger.cloud_plane)->size() << endl;
+//
+//    PointColor obj_color(seger.cloud_plane, 60 + 40 * i, 100, 100+30);
+//    std::string objID = "plane_cloud_" + std::to_string(i++);
+//    viewer->addPointCloud<pcl::PointXYZ>(seger.cloud_plane, obj_color, objID);
+//  }
+
+
+//
+//  pcl::PointCloud <pcl::PointXYZRGB>::Ptr colored_cloud = seger.reg.getColoredCloud();
+//  pcl::visualization::CloudViewer viewer ("Cluster viewer");
+//  viewer.showCloud(colored_cloud);
+
+  while (!viewer->wasStopped()) {
+      viewer->spinOnce (100);   // ms
+      boost::this_thread::sleep (boost::posix_time::microseconds (100));
   }
 }
 

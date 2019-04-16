@@ -5,6 +5,7 @@
 # data
 *.pcd
 *.bag
+*.mp4
 
 # directory
 data/
