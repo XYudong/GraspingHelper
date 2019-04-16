@@ -48,10 +48,10 @@ RM = /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yudong/CLionProjects/FirstTest
+CMAKE_SOURCE_DIR = /home/yudong/CLionProjects/3DSegmentation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yudong/CLionProjects/FirstTest/cmake-build-debug
+CMAKE_BINARY_DIR = /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles /home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named FirstTest
+# Target rules for targets named 3DSegmentation
 
 # Build rule for target.
-FirstTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 FirstTest
-.PHONY : FirstTest
+3DSegmentation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 3DSegmentation
+.PHONY : 3DSegmentation
 
 # fast build rule for target.
-FirstTest/fast:
-	$(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/build
-.PHONY : FirstTest/fast
+3DSegmentation/fast:
+	$(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/build
+.PHONY : 3DSegmentation/fast
 
 # Help Target
 help:
@@ -131,7 +131,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... FirstTest"
+	@echo "... 3DSegmentation"
 .PHONY : help
 
 

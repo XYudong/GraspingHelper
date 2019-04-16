@@ -8,9 +8,8 @@
 #include <string>
 #include <vector>
 #include "pclPlay.h"
-#include "cylinder_segmentation.h"
 
-void doCySegmentation(cylinder_segmentation & cy_seg);
+
 
 #endif //FIRSTTEST_MAIN_H
 

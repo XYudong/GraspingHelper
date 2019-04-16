@@ -48,10 +48,10 @@ RM = /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yudong/CLionProjects/FirstTest
+CMAKE_SOURCE_DIR = /home/yudong/CLionProjects/3DSegmentation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yudong/CLionProjects/FirstTest/cmake-build-debug
+CMAKE_BINARY_DIR = /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles /home/yudong/CLionProjects/FirstTest/cmake-build-debug/src/CMakeFiles/progress.marks
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles 0
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/src/CMakeFiles/progress.marks
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,60 +97,33 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/FirstTest.dir/rule:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/FirstTest.dir/rule
-.PHONY : src/CMakeFiles/FirstTest.dir/rule
+src/CMakeFiles/3DSegmentation.dir/rule:
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/3DSegmentation.dir/rule
+.PHONY : src/CMakeFiles/3DSegmentation.dir/rule
 
 # Convenience name for target.
-FirstTest: src/CMakeFiles/FirstTest.dir/rule
+3DSegmentation: src/CMakeFiles/3DSegmentation.dir/rule
 
-.PHONY : FirstTest
+.PHONY : 3DSegmentation
 
 # fast build rule for target.
-FirstTest/fast:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/build
-.PHONY : FirstTest/fast
-
-cylinder_segmentation.o: cylinder_segmentation.cpp.o
-
-.PHONY : cylinder_segmentation.o
-
-# target to build an object file
-cylinder_segmentation.cpp.o:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.o
-.PHONY : cylinder_segmentation.cpp.o
-
-cylinder_segmentation.i: cylinder_segmentation.cpp.i
-
-.PHONY : cylinder_segmentation.i
-
-# target to preprocess a source file
-cylinder_segmentation.cpp.i:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.i
-.PHONY : cylinder_segmentation.cpp.i
-
-cylinder_segmentation.s: cylinder_segmentation.cpp.s
-
-.PHONY : cylinder_segmentation.s
-
-# target to generate assembly for a file
-cylinder_segmentation.cpp.s:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.s
-.PHONY : cylinder_segmentation.cpp.s
+3DSegmentation/fast:
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/build
+.PHONY : 3DSegmentation/fast
 
 main.o: main.cpp.o
 
@@ -158,7 +131,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/main.cpp.o
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -167,7 +140,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/main.cpp.i
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -176,35 +149,8 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/main.cpp.s
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-openGLHelper.o: openGLHelper.cpp.o
-
-.PHONY : openGLHelper.o
-
-# target to build an object file
-openGLHelper.cpp.o:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/openGLHelper.cpp.o
-.PHONY : openGLHelper.cpp.o
-
-openGLHelper.i: openGLHelper.cpp.i
-
-.PHONY : openGLHelper.i
-
-# target to preprocess a source file
-openGLHelper.cpp.i:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/openGLHelper.cpp.i
-.PHONY : openGLHelper.cpp.i
-
-openGLHelper.s: openGLHelper.cpp.s
-
-.PHONY : openGLHelper.s
-
-# target to generate assembly for a file
-openGLHelper.cpp.s:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/openGLHelper.cpp.s
-.PHONY : openGLHelper.cpp.s
 
 pclPlay.o: pclPlay.cpp.o
 
@@ -212,7 +158,7 @@ pclPlay.o: pclPlay.cpp.o
 
 # target to build an object file
 pclPlay.cpp.o:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/pclPlay.cpp.o
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/pclPlay.cpp.o
 .PHONY : pclPlay.cpp.o
 
 pclPlay.i: pclPlay.cpp.i
@@ -221,7 +167,7 @@ pclPlay.i: pclPlay.cpp.i
 
 # target to preprocess a source file
 pclPlay.cpp.i:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/pclPlay.cpp.i
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/pclPlay.cpp.i
 .PHONY : pclPlay.cpp.i
 
 pclPlay.s: pclPlay.cpp.s
@@ -230,35 +176,62 @@ pclPlay.s: pclPlay.cpp.s
 
 # target to generate assembly for a file
 pclPlay.cpp.s:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/pclPlay.cpp.s
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/pclPlay.cpp.s
 .PHONY : pclPlay.cpp.s
 
-rsPlay.o: rsPlay.cpp.o
+plane_segmentation.o: plane_segmentation.cpp.o
 
-.PHONY : rsPlay.o
+.PHONY : plane_segmentation.o
 
 # target to build an object file
-rsPlay.cpp.o:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o
-.PHONY : rsPlay.cpp.o
+plane_segmentation.cpp.o:
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/plane_segmentation.cpp.o
+.PHONY : plane_segmentation.cpp.o
 
-rsPlay.i: rsPlay.cpp.i
+plane_segmentation.i: plane_segmentation.cpp.i
 
-.PHONY : rsPlay.i
+.PHONY : plane_segmentation.i
 
 # target to preprocess a source file
-rsPlay.cpp.i:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/rsPlay.cpp.i
-.PHONY : rsPlay.cpp.i
+plane_segmentation.cpp.i:
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/plane_segmentation.cpp.i
+.PHONY : plane_segmentation.cpp.i
 
-rsPlay.s: rsPlay.cpp.s
+plane_segmentation.s: plane_segmentation.cpp.s
 
-.PHONY : rsPlay.s
+.PHONY : plane_segmentation.s
 
 # target to generate assembly for a file
-rsPlay.cpp.s:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(MAKE) -f src/CMakeFiles/FirstTest.dir/build.make src/CMakeFiles/FirstTest.dir/rsPlay.cpp.s
-.PHONY : rsPlay.cpp.s
+plane_segmentation.cpp.s:
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/plane_segmentation.cpp.s
+.PHONY : plane_segmentation.cpp.s
+
+utils.o: utils.cpp.o
+
+.PHONY : utils.o
+
+# target to build an object file
+utils.cpp.o:
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/utils.cpp.o
+.PHONY : utils.cpp.o
+
+utils.i: utils.cpp.i
+
+.PHONY : utils.i
+
+# target to preprocess a source file
+utils.cpp.i:
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/utils.cpp.i
+.PHONY : utils.cpp.i
+
+utils.s: utils.cpp.s
+
+.PHONY : utils.s
+
+# target to generate assembly for a file
+utils.cpp.s:
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(MAKE) -f src/CMakeFiles/3DSegmentation.dir/build.make src/CMakeFiles/3DSegmentation.dir/utils.cpp.s
+.PHONY : utils.cpp.s
 
 # Help Target
 help:
@@ -268,22 +241,19 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... FirstTest"
-	@echo "... cylinder_segmentation.o"
-	@echo "... cylinder_segmentation.i"
-	@echo "... cylinder_segmentation.s"
+	@echo "... 3DSegmentation"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... openGLHelper.o"
-	@echo "... openGLHelper.i"
-	@echo "... openGLHelper.s"
 	@echo "... pclPlay.o"
 	@echo "... pclPlay.i"
 	@echo "... pclPlay.s"
-	@echo "... rsPlay.o"
-	@echo "... rsPlay.i"
-	@echo "... rsPlay.s"
+	@echo "... plane_segmentation.o"
+	@echo "... plane_segmentation.i"
+	@echo "... plane_segmentation.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
 .PHONY : help
 
 
@@ -295,6 +265,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

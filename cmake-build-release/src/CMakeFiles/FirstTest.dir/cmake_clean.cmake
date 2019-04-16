@@ -1,9 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/FirstTest.dir/main.cpp.o"
-  "CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.o"
   "CMakeFiles/FirstTest.dir/pclPlay.cpp.o"
-  "CMakeFiles/FirstTest.dir/rsPlay.cpp.o"
-  "CMakeFiles/FirstTest.dir/openGLHelper.cpp.o"
+  "CMakeFiles/FirstTest.dir/utils.cpp.o"
+  "CMakeFiles/FirstTest.dir/plane_segmentation.cpp.o"
   "FirstTest.pdb"
   "FirstTest"
 )

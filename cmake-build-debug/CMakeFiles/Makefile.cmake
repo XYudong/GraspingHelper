@@ -232,10 +232,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfigVersion.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/realsense2/realsense2Config.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/realsense2/realsense2ConfigVersion.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/realsense2/realsense2Targets-release.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/realsense2/realsense2Targets.cmake"
   "/usr/local/lib/cmake/glfw3/glfw3Config.cmake"
   "/usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake"
   "/usr/local/lib/cmake/glfw3/glfw3Targets-noconfig.cmake"
@@ -261,5 +257,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "src/CMakeFiles/FirstTest.dir/DependInfo.cmake"
+  "src/CMakeFiles/3DSegmentation.dir/DependInfo.cmake"
   )

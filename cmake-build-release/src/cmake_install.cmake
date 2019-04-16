@@ -1,4 +1,4 @@
-# Install script for directory: /home/yudong/CLionProjects/FirstTest/src
+# Install script for directory: /home/yudong/CLionProjects/3DSegmentation/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -4,11 +4,12 @@
 
 #include "cylinder_segmentation.h"
 #include <pcl/features/normal_3d_omp.h>
-#include "pclPlay.h"
 #include <pcl/segmentation/region_growing.h>
+#include "pclPlay.h"
 
+namespace ch = std::chrono;
 
-cylinder_segmentation::cylinder_segmentation(const pcl::PointCloud<PointT>::Ptr & cloud)
+CylinderSegmentation::CylinderSegmentation(const pcl::PointCloud<PointT>::Ptr & cloud)
 : tree (new pcl::search::KdTree<PointT> ())
 , cloud (new pcl::PointCloud<PointT>)
 , cloud_filtered (new pcl::PointCloud<PointT>)
@@ -26,11 +27,11 @@ cylinder_segmentation::cylinder_segmentation(const pcl::PointCloud<PointT>::Ptr 
     this -> cloud = cloud;
 }
 
-void cylinder_segmentation::passThroughFilter() {
+void CylinderSegmentation::passThroughFilter() {
     // Build a PassThrough filter to remove spurious NaNs
     pass.setInputCloud (cloud);
     pass.setFilterFieldName ("z");
-    pass.setFilterLimits (0.2, 0.9);
+    pass.setFilterLimits (0.3, 1.7);
     pass.filter (*cloud_filtered);
 
     pass.setInputCloud (cloud_filtered);
@@ -41,11 +42,11 @@ void cylinder_segmentation::passThroughFilter() {
     std::cerr << "PointCloud after PassThrough filtering:\n" << *cloud_filtered << std::endl;
 }
 
-void cylinder_segmentation::downSampling() {
+void CylinderSegmentation::downSampling() {
     pclpcl::voxelGridFilter(cloud_filtered, cloud_voxelized);
 }
 
-void cylinder_segmentation::estNormals() {
+void CylinderSegmentation::estNormals() {
     // Estimate point normals
     norm_est.setSearchMethod (tree);
     norm_est.setInputCloud (cloud_voxelized);
@@ -54,7 +55,7 @@ void cylinder_segmentation::estNormals() {
     norm_est.compute (*cloud_normals);
 }
 
-void cylinder_segmentation::segPlane() {
+void CylinderSegmentation::segPlane() {
     // Create the segmentation object for the planar model and set all the parameters
     seg.setOptimizeCoefficients (true);
     seg.setModelType (pcl::SACMODEL_PLANE);
@@ -74,18 +75,18 @@ void cylinder_segmentation::segPlane() {
 //    extract.setNegative (false);
 //    extract.filter (*cloud_plane);      // could be commented later to save time
 
-// Remove the planar inliers, extract the rest into cloud_filter2
+    // Remove the planar inliers, extract the rest into cloud_filter2
     extract.setNegative (true);
     extract.filter (*cloud_filtered2);
 }
 
-void cylinder_segmentation::writePlane(const std::string & plane_file) {
+void CylinderSegmentation::writePlane(const std::string & plane_file) {
     // Write the planar inliers to disk
     std::cerr << "PointCloud representing the planar component: " << cloud_plane->points.size () << " data points." << std::endl;
     writer.write (plane_file, *cloud_plane, false);
 }
 
-void cylinder_segmentation::segCylinder() {
+void CylinderSegmentation::segCylinder() {
     extract_normals.setNegative (true);
     extract_normals.setInputCloud (cloud_normals);
     extract_normals.setIndices (inliers_plane);
@@ -114,7 +115,7 @@ void cylinder_segmentation::segCylinder() {
     extract.filter (*cloud_cylinder);
 }
 
-void cylinder_segmentation::segNextCylinder() {
+void CylinderSegmentation::segNextCylinder() {
     extract.setNegative(true);
     extract.filter(*cloud_filtered2);
     extract_normals.setNegative (true);
@@ -134,7 +135,7 @@ void cylinder_segmentation::segNextCylinder() {
     extract.filter(*cloud_cylinder);
 }
 
-void cylinder_segmentation::writeCylinder(const std::string & cylinder_file) {
+void CylinderSegmentation::writeCylinder(const std::string & cylinder_file) {
     // Write the cylinder inliers to disk
     if (cloud_cylinder->points.empty ())
         std::cerr << "Can't find the cylindrical component." << std::endl;
@@ -146,7 +147,7 @@ void cylinder_segmentation::writeCylinder(const std::string & cylinder_file) {
     }
 }
 
-void cylinder_segmentation::regionGrowing() {
+void CylinderSegmentation::regionGrowing() {
     extract_normals.setNegative (true);
     extract_normals.setInputCloud (cloud_normals);
     extract_normals.setIndices (inliers_plane);
@@ -174,7 +175,7 @@ void cylinder_segmentation::regionGrowing() {
 
 }
 
-void cylinder_segmentation::statFilter(pcl::PointCloud<PointT>::Ptr &cloud,
+void CylinderSegmentation::statFilter(pcl::PointCloud<PointT>::Ptr &cloud,
                                          pcl::PointCloud<pcl::Normal>::Ptr &normals) {
     // remove outliers from cloud and corresponding normals
     pcl::PointIndices::Ptr inliers_cys (new pcl::PointIndices);
@@ -192,7 +193,59 @@ void cylinder_segmentation::statFilter(pcl::PointCloud<PointT>::Ptr &cloud,
 }
 
 
+void doCySegmentation(CylinderSegmentation & cy_seg) {
+    // main workflow for cylinder(s) segmentation
+    auto start = ch::high_resolution_clock::now();
 
+    std::cout << "\nSegmentation Input Cloud:\n" << *(cy_seg.cloud) << std::endl;
+    cy_seg.passThroughFilter();
+    cy_seg.downSampling();
+    cy_seg.estNormals();
+
+    cy_seg.segPlane();
+    cy_seg.segCylinder();       // segment first cylinder
+
+    // initialize viewer
+    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer = pclpcl::simpleVis();
+    // for debugging visualization
+//    viewer->addPointCloud<pcl::PointXYZ> (cy_seg.cloud, "debug_cloud");
+
+    int cy_num = 2;     // # of cylinders(start from 0) to extract provided by user
+    for (int i = 0; i <= cy_num; i++) {
+        auto cy_cloud = cy_seg.cloud_cylinder;  // Ptr
+        std::cout << "#" << i << " Cylinder PointCloud has: " << cy_cloud -> points.size () << " data points." << std::endl;
+//        std::cerr << "Cylinder coefficients: " << *(cy_seg.coefficients_cylinder) << std::endl;
+
+        std::vector<double> cy_centroid = pclpcl::getCentroid(*cy_cloud);
+        std::cout << "Centroid of cylinder:" << '\n';
+        std::cout << cy_centroid[0] << '\n' << cy_centroid[1] << '\n' << cy_centroid[2] << '\n' << endl;
+
+        //visualization
+        std::string portID = "cy_cloud_" + std::to_string(i);
+        pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color(cy_cloud, 50+80*i, 180-30*i, 100+30*i);
+        viewer->addPointCloud<pcl::PointXYZ> (cy_cloud, single_color, portID);
+        viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, portID);
+        // next one
+        if (i<cy_num) {
+            cy_seg.segNextCylinder();
+        }
+    }
+
+//    auto rem_cloud = cy_seg.cloud_filtered2;
+//    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color(rem_cloud, 220, 0, 0);
+//    viewer->addPointCloud<pcl::PointXYZ> (rem_cloud, single_color, "2333", 0);
+//    viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "2333");
+
+    auto stop = ch::high_resolution_clock::now();
+    auto duration = ch::duration_cast<ch::milliseconds>(stop - start);
+    std::cout << "\nCylinder segmentation task takes: " << duration.count() << " milliseconds" << endl;
+    // rendering
+    while (!viewer->wasStopped ())
+    {
+        viewer->spinOnce (100);
+        boost::this_thread::sleep (boost::posix_time::microseconds (10000));
+    }
+}
 
 
 

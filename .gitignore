@@ -8,4 +8,5 @@
 
 # directory
 data/*
+results_demo/*
 cmake-*/*

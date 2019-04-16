@@ -1,4 +1,4 @@
-/opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" /home/yudong/CLionProjects/FirstTest
+/opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" /home/yudong/CLionProjects/3DSegmentation
 -- Boost version: 1.58.0
 -- Found the following Boost libraries:
 --   system
@@ -55,4 +55,4 @@ but not all the files it references.
 -- looking for PCL_POINT_CLOUD_EDITOR
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/yudong/CLionProjects/FirstTest/cmake-build-release
+-- Build files have been written to: /home/yudong/CLionProjects/3DSegmentation/cmake-build-release

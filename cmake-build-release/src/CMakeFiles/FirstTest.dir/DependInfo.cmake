@@ -4,11 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/yudong/CLionProjects/FirstTest/src/cylinder_segmentation.cpp" "/home/yudong/CLionProjects/FirstTest/cmake-build-release/src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.o"
-  "/home/yudong/CLionProjects/FirstTest/src/main.cpp" "/home/yudong/CLionProjects/FirstTest/cmake-build-release/src/CMakeFiles/FirstTest.dir/main.cpp.o"
-  "/home/yudong/CLionProjects/FirstTest/src/openGLHelper.cpp" "/home/yudong/CLionProjects/FirstTest/cmake-build-release/src/CMakeFiles/FirstTest.dir/openGLHelper.cpp.o"
-  "/home/yudong/CLionProjects/FirstTest/src/pclPlay.cpp" "/home/yudong/CLionProjects/FirstTest/cmake-build-release/src/CMakeFiles/FirstTest.dir/pclPlay.cpp.o"
-  "/home/yudong/CLionProjects/FirstTest/src/rsPlay.cpp" "/home/yudong/CLionProjects/FirstTest/cmake-build-release/src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o"
+  "/home/yudong/CLionProjects/3DSegmentation/src/main.cpp" "/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src/CMakeFiles/FirstTest.dir/main.cpp.o"
+  "/home/yudong/CLionProjects/3DSegmentation/src/pclPlay.cpp" "/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src/CMakeFiles/FirstTest.dir/pclPlay.cpp.o"
+  "/home/yudong/CLionProjects/3DSegmentation/src/plane_segmentation.cpp" "/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src/CMakeFiles/FirstTest.dir/plane_segmentation.cpp.o"
+  "/home/yudong/CLionProjects/3DSegmentation/src/utils.cpp" "/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src/CMakeFiles/FirstTest.dir/utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

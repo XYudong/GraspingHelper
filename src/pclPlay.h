@@ -9,7 +9,7 @@
 
 #include <pcl/point_types.h>
 #include <pcl/visualization/pcl_visualizer.h>
-#include "cylinder_segmentation.h"
+//#include "cylinder_segmentation.h"
 
 
 namespace pclpcl {
@@ -26,7 +26,7 @@ namespace pclpcl {
                          pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_out = nullptr);
 
     std::vector<double> getCentroid(const pcl::PointCloud<pcl::PointXYZ> & points);
-    void doRegionGrowing(cylinder_segmentation & cy_seg);
+//    void doRegionGrowing(CylinderSegmentation & cy_seg);
 
 }
 

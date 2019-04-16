@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_62892/fast"
-/usr/bin/make -f CMakeFiles/cmTC_62892.dir/build.make CMakeFiles/cmTC_62892.dir/build
-make[1]: Entering directory '/home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_62892.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_62892.dir/CheckSymbolExists.c.o   -c /home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_62892
-/opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_62892.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_62892.dir/CheckSymbolExists.c.o  -o cmTC_62892 
-CMakeFiles/cmTC_62892.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:"/usr/bin/make" "cmTC_79f0e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_79f0e.dir/build.make CMakeFiles/cmTC_79f0e.dir/build
+make[1]: Entering directory '/home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_79f0e.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_79f0e.dir/CheckSymbolExists.c.o   -c /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_79f0e
+/opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79f0e.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_79f0e.dir/CheckSymbolExists.c.o  -o cmTC_79f0e 
+CMakeFiles/cmTC_79f0e.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_62892.dir/build.make:86: recipe for target 'cmTC_62892' failed
-make[1]: *** [cmTC_62892] Error 1
-make[1]: Leaving directory '/home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles/CMakeTmp'
-Makefile:121: recipe for target 'cmTC_62892/fast' failed
-make: *** [cmTC_62892/fast] Error 2
+CMakeFiles/cmTC_79f0e.dir/build.make:86: recipe for target 'cmTC_79f0e' failed
+make[1]: *** [cmTC_79f0e] Error 1
+make[1]: Leaving directory '/home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_79f0e/fast' failed
+make: *** [cmTC_79f0e/fast] Error 2
 
-File /home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,22 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_47e73/fast"
-/usr/bin/make -f CMakeFiles/cmTC_47e73.dir/build.make CMakeFiles/cmTC_47e73.dir/build
-make[1]: Entering directory '/home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_47e73.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_47e73.dir/CheckFunctionExists.c.o   -c /opt/clion-2018.2.5/bin/cmake/linux/share/cmake-3.12/Modules/CheckFunctionExists.c
-Linking C executable cmTC_47e73
-/opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47e73.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_47e73.dir/CheckFunctionExists.c.o  -o cmTC_47e73 -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_66f79/fast"
+/usr/bin/make -f CMakeFiles/cmTC_66f79.dir/build.make CMakeFiles/cmTC_66f79.dir/build
+make[1]: Entering directory '/home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_66f79.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_66f79.dir/CheckFunctionExists.c.o   -c /opt/clion-2018.2.5/bin/cmake/linux/share/cmake-3.12/Modules/CheckFunctionExists.c
+Linking C executable cmTC_66f79
+/opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_66f79.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_66f79.dir/CheckFunctionExists.c.o  -o cmTC_66f79 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_47e73.dir/build.make:86: recipe for target 'cmTC_47e73' failed
-make[1]: *** [cmTC_47e73] Error 1
-make[1]: Leaving directory '/home/yudong/CLionProjects/FirstTest/cmake-build-debug/CMakeFiles/CMakeTmp'
-Makefile:121: recipe for target 'cmTC_47e73/fast' failed
-make: *** [cmTC_47e73/fast] Error 2
+CMakeFiles/cmTC_66f79.dir/build.make:86: recipe for target 'cmTC_66f79' failed
+make[1]: *** [cmTC_66f79] Error 1
+make[1]: Leaving directory '/home/yudong/CLionProjects/3DSegmentation/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_66f79/fast' failed
+make: *** [cmTC_66f79/fast] Error 2
 
 

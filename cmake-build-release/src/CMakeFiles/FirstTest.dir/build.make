@@ -43,10 +43,10 @@ RM = /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yudong/CLionProjects/FirstTest
+CMAKE_SOURCE_DIR = /home/yudong/CLionProjects/3DSegmentation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yudong/CLionProjects/FirstTest/cmake-build-release
+CMAKE_BINARY_DIR = /home/yudong/CLionProjects/3DSegmentation/cmake-build-release
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/FirstTest.dir/depend.make
@@ -59,85 +59,70 @@ include src/CMakeFiles/FirstTest.dir/flags.make
 
 src/CMakeFiles/FirstTest.dir/main.cpp.o: src/CMakeFiles/FirstTest.dir/flags.make
 src/CMakeFiles/FirstTest.dir/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yudong/CLionProjects/FirstTest/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/FirstTest.dir/main.cpp.o"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FirstTest.dir/main.cpp.o -c /home/yudong/CLionProjects/FirstTest/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/FirstTest.dir/main.cpp.o"
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FirstTest.dir/main.cpp.o -c /home/yudong/CLionProjects/3DSegmentation/src/main.cpp
 
 src/CMakeFiles/FirstTest.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FirstTest.dir/main.cpp.i"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yudong/CLionProjects/FirstTest/src/main.cpp > CMakeFiles/FirstTest.dir/main.cpp.i
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yudong/CLionProjects/3DSegmentation/src/main.cpp > CMakeFiles/FirstTest.dir/main.cpp.i
 
 src/CMakeFiles/FirstTest.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FirstTest.dir/main.cpp.s"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yudong/CLionProjects/FirstTest/src/main.cpp -o CMakeFiles/FirstTest.dir/main.cpp.s
-
-src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.o: src/CMakeFiles/FirstTest.dir/flags.make
-src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.o: ../src/cylinder_segmentation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yudong/CLionProjects/FirstTest/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.o"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.o -c /home/yudong/CLionProjects/FirstTest/src/cylinder_segmentation.cpp
-
-src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.i"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yudong/CLionProjects/FirstTest/src/cylinder_segmentation.cpp > CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.i
-
-src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.s"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yudong/CLionProjects/FirstTest/src/cylinder_segmentation.cpp -o CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.s
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yudong/CLionProjects/3DSegmentation/src/main.cpp -o CMakeFiles/FirstTest.dir/main.cpp.s
 
 src/CMakeFiles/FirstTest.dir/pclPlay.cpp.o: src/CMakeFiles/FirstTest.dir/flags.make
 src/CMakeFiles/FirstTest.dir/pclPlay.cpp.o: ../src/pclPlay.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yudong/CLionProjects/FirstTest/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/FirstTest.dir/pclPlay.cpp.o"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FirstTest.dir/pclPlay.cpp.o -c /home/yudong/CLionProjects/FirstTest/src/pclPlay.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/FirstTest.dir/pclPlay.cpp.o"
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FirstTest.dir/pclPlay.cpp.o -c /home/yudong/CLionProjects/3DSegmentation/src/pclPlay.cpp
 
 src/CMakeFiles/FirstTest.dir/pclPlay.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FirstTest.dir/pclPlay.cpp.i"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yudong/CLionProjects/FirstTest/src/pclPlay.cpp > CMakeFiles/FirstTest.dir/pclPlay.cpp.i
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yudong/CLionProjects/3DSegmentation/src/pclPlay.cpp > CMakeFiles/FirstTest.dir/pclPlay.cpp.i
 
 src/CMakeFiles/FirstTest.dir/pclPlay.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FirstTest.dir/pclPlay.cpp.s"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yudong/CLionProjects/FirstTest/src/pclPlay.cpp -o CMakeFiles/FirstTest.dir/pclPlay.cpp.s
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yudong/CLionProjects/3DSegmentation/src/pclPlay.cpp -o CMakeFiles/FirstTest.dir/pclPlay.cpp.s
 
-src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o: src/CMakeFiles/FirstTest.dir/flags.make
-src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o: ../src/rsPlay.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yudong/CLionProjects/FirstTest/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FirstTest.dir/rsPlay.cpp.o -c /home/yudong/CLionProjects/FirstTest/src/rsPlay.cpp
+src/CMakeFiles/FirstTest.dir/utils.cpp.o: src/CMakeFiles/FirstTest.dir/flags.make
+src/CMakeFiles/FirstTest.dir/utils.cpp.o: ../src/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/FirstTest.dir/utils.cpp.o"
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FirstTest.dir/utils.cpp.o -c /home/yudong/CLionProjects/3DSegmentation/src/utils.cpp
 
-src/CMakeFiles/FirstTest.dir/rsPlay.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FirstTest.dir/rsPlay.cpp.i"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yudong/CLionProjects/FirstTest/src/rsPlay.cpp > CMakeFiles/FirstTest.dir/rsPlay.cpp.i
+src/CMakeFiles/FirstTest.dir/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FirstTest.dir/utils.cpp.i"
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yudong/CLionProjects/3DSegmentation/src/utils.cpp > CMakeFiles/FirstTest.dir/utils.cpp.i
 
-src/CMakeFiles/FirstTest.dir/rsPlay.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FirstTest.dir/rsPlay.cpp.s"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yudong/CLionProjects/FirstTest/src/rsPlay.cpp -o CMakeFiles/FirstTest.dir/rsPlay.cpp.s
+src/CMakeFiles/FirstTest.dir/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FirstTest.dir/utils.cpp.s"
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yudong/CLionProjects/3DSegmentation/src/utils.cpp -o CMakeFiles/FirstTest.dir/utils.cpp.s
 
-src/CMakeFiles/FirstTest.dir/openGLHelper.cpp.o: src/CMakeFiles/FirstTest.dir/flags.make
-src/CMakeFiles/FirstTest.dir/openGLHelper.cpp.o: ../src/openGLHelper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yudong/CLionProjects/FirstTest/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/FirstTest.dir/openGLHelper.cpp.o"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FirstTest.dir/openGLHelper.cpp.o -c /home/yudong/CLionProjects/FirstTest/src/openGLHelper.cpp
+src/CMakeFiles/FirstTest.dir/plane_segmentation.cpp.o: src/CMakeFiles/FirstTest.dir/flags.make
+src/CMakeFiles/FirstTest.dir/plane_segmentation.cpp.o: ../src/plane_segmentation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/FirstTest.dir/plane_segmentation.cpp.o"
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FirstTest.dir/plane_segmentation.cpp.o -c /home/yudong/CLionProjects/3DSegmentation/src/plane_segmentation.cpp
 
-src/CMakeFiles/FirstTest.dir/openGLHelper.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FirstTest.dir/openGLHelper.cpp.i"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yudong/CLionProjects/FirstTest/src/openGLHelper.cpp > CMakeFiles/FirstTest.dir/openGLHelper.cpp.i
+src/CMakeFiles/FirstTest.dir/plane_segmentation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FirstTest.dir/plane_segmentation.cpp.i"
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yudong/CLionProjects/3DSegmentation/src/plane_segmentation.cpp > CMakeFiles/FirstTest.dir/plane_segmentation.cpp.i
 
-src/CMakeFiles/FirstTest.dir/openGLHelper.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FirstTest.dir/openGLHelper.cpp.s"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yudong/CLionProjects/FirstTest/src/openGLHelper.cpp -o CMakeFiles/FirstTest.dir/openGLHelper.cpp.s
+src/CMakeFiles/FirstTest.dir/plane_segmentation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FirstTest.dir/plane_segmentation.cpp.s"
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yudong/CLionProjects/3DSegmentation/src/plane_segmentation.cpp -o CMakeFiles/FirstTest.dir/plane_segmentation.cpp.s
 
 # Object files for target FirstTest
 FirstTest_OBJECTS = \
 "CMakeFiles/FirstTest.dir/main.cpp.o" \
-"CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.o" \
 "CMakeFiles/FirstTest.dir/pclPlay.cpp.o" \
-"CMakeFiles/FirstTest.dir/rsPlay.cpp.o" \
-"CMakeFiles/FirstTest.dir/openGLHelper.cpp.o"
+"CMakeFiles/FirstTest.dir/utils.cpp.o" \
+"CMakeFiles/FirstTest.dir/plane_segmentation.cpp.o"
 
 # External object files for target FirstTest
 FirstTest_EXTERNAL_OBJECTS =
 
 src/FirstTest: src/CMakeFiles/FirstTest.dir/main.cpp.o
-src/FirstTest: src/CMakeFiles/FirstTest.dir/cylinder_segmentation.cpp.o
 src/FirstTest: src/CMakeFiles/FirstTest.dir/pclPlay.cpp.o
-src/FirstTest: src/CMakeFiles/FirstTest.dir/rsPlay.cpp.o
-src/FirstTest: src/CMakeFiles/FirstTest.dir/openGLHelper.cpp.o
+src/FirstTest: src/CMakeFiles/FirstTest.dir/utils.cpp.o
+src/FirstTest: src/CMakeFiles/FirstTest.dir/plane_segmentation.cpp.o
 src/FirstTest: src/CMakeFiles/FirstTest.dir/build.make
 src/FirstTest: /usr/local/lib/libopencv_stitching.so.4.0.0
 src/FirstTest: /usr/local/lib/libopencv_superres.so.4.0.0
@@ -458,8 +443,8 @@ src/FirstTest: /usr/lib/x86_64-linux-gnu/libvtkDICOMParser-6.2.so.6.2.0
 src/FirstTest: /usr/lib/x86_64-linux-gnu/libvtkmetaio-6.2.so.6.2.0
 src/FirstTest: /usr/lib/x86_64-linux-gnu/libz.so
 src/FirstTest: src/CMakeFiles/FirstTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yudong/CLionProjects/FirstTest/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable FirstTest"
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FirstTest.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yudong/CLionProjects/3DSegmentation/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable FirstTest"
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FirstTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/FirstTest.dir/build: src/FirstTest
@@ -467,10 +452,10 @@ src/CMakeFiles/FirstTest.dir/build: src/FirstTest
 .PHONY : src/CMakeFiles/FirstTest.dir/build
 
 src/CMakeFiles/FirstTest.dir/clean:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release/src && $(CMAKE_COMMAND) -P CMakeFiles/FirstTest.dir/cmake_clean.cmake
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src && $(CMAKE_COMMAND) -P CMakeFiles/FirstTest.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/FirstTest.dir/clean
 
 src/CMakeFiles/FirstTest.dir/depend:
-	cd /home/yudong/CLionProjects/FirstTest/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yudong/CLionProjects/FirstTest /home/yudong/CLionProjects/FirstTest/src /home/yudong/CLionProjects/FirstTest/cmake-build-release /home/yudong/CLionProjects/FirstTest/cmake-build-release/src /home/yudong/CLionProjects/FirstTest/cmake-build-release/src/CMakeFiles/FirstTest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/yudong/CLionProjects/3DSegmentation/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yudong/CLionProjects/3DSegmentation /home/yudong/CLionProjects/3DSegmentation/src /home/yudong/CLionProjects/3DSegmentation/cmake-build-release /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src /home/yudong/CLionProjects/3DSegmentation/cmake-build-release/src/CMakeFiles/FirstTest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/FirstTest.dir/depend
 

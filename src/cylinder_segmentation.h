@@ -6,6 +6,7 @@
 #define FIRSTTEST_CYLINDER_SEGMENTATION_H
 
 #include <string>
+#include <chrono>
 
 #include <pcl/ModelCoefficients.h>
 #include <pcl/io/pcd_io.h>
@@ -22,7 +23,7 @@
 typedef pcl::PointXYZ PointT;
 
 
-class cylinder_segmentation {
+class CylinderSegmentation {
     // All the objects needed
     pcl::PCDReader reader;
     pcl::PassThrough<PointT> pass;
@@ -46,8 +47,9 @@ public:
     pcl::PointIndices::Ptr inliers_plane, inliers_cylinder;
     pcl::PointCloud<PointT>::Ptr cloud_plane, cloud_cylinder;
 
-    explicit cylinder_segmentation(const pcl::PointCloud<PointT>::Ptr & cloud);
+    explicit CylinderSegmentation(const pcl::PointCloud<PointT>::Ptr & cloud);
     /// initialize object data members and read in the cloud data from file
+//    virtual ~cylinder_segmentation();
     void passThroughFilter();
     void downSampling();
     void estNormals();
@@ -56,9 +58,13 @@ public:
     void segCylinder();
     void writeCylinder(const std::string & cylinder_file);
     void segNextCylinder();
+    void segNextPlane();
     void regionGrowing();
     void statFilter(pcl::PointCloud<PointT>::Ptr & cloud_filtered, pcl::PointCloud<pcl::Normal>::Ptr & cloud_normals);
 };
+
+
+void doCySegmentation(CylinderSegmentation & cy_seg);
 
 
 #endif //FIRSTTEST_CYLINDER_SEGMENTATION_H
