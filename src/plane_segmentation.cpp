@@ -68,7 +68,7 @@ void PlaneSegmentation::fitPlane(bool normal,
   seg.setOptimizeCoefficients (true);
   seg.setMethodType (pcl::SAC_RANSAC);
   seg.setMaxIterations (100);
-  seg.setNormalDistanceWeight (0.05);     // w
+  seg.setNormalDistanceWeight (0.05);     // w, important
   seg.setDistanceThreshold (0.03);        // Euclidean distance, with weight (1-w)
   seg.setInputCloud (in_cloud);
   seg.setInputNormals (in_normals);

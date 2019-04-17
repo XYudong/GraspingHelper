@@ -53,7 +53,7 @@ void processPlanes(const pcl::PointCloud<PointT>::Ptr& in_cloud) {
   seger.downSampling();
   seger.estNormals();
 
-  // segment desktop plane(i.e. the largest one)
+  // (1) segment desktop plane(i.e. the largest one)
   seger.segPlane(false);
   pclpcl::statisticalFilter(seger.cloud_filtered, seger.idx_plane);
   seger.extractNormals(false);
@@ -69,7 +69,7 @@ void processPlanes(const pcl::PointCloud<PointT>::Ptr& in_cloud) {
   const auto plane0_coeffs = seger.coefficients_plane->values;
   const auto plane0_normal = vector<float>(plane0_coeffs.begin(), plane0_coeffs.begin() + 3);
 
-  // Region Growing segmentation
+  // (2) Region Growing segmentation
   vector<pcl::PointIndices> clusters;
   seger.regionGrowing(seger.cloud_normals, seger.cloud_filtered, clusters);
   cout << "# of clusters: " << clusters.size() << endl;
@@ -78,53 +78,37 @@ void processPlanes(const pcl::PointCloud<PointT>::Ptr& in_cloud) {
   auto idx_plane = pcl::PointIndices::Ptr(new pcl::PointIndices);
   auto normal_plane = pcl::PointCloud<pcl::Normal>::Ptr(new pcl::PointCloud<pcl::Normal>);
   for (auto& cluster : clusters) {
-    if (cluster.indices.size() < 100) {
-      continue;
-    }
+    if (cluster.indices.size() < 100) { continue; }
+
+    // prepare for the model fitting
     *idx_plane = cluster;
     seger.extractCloud(false, idx_plane,
-                       seger.cloud_filtered,
-                       seger.cloud_plane);
-    pclpcl::extractNormals(false, idx_plane, seger.cloud_normals, normal_plane);
-    seger.fitPlane(false, normal_plane, seger.cloud_plane);
+                       seger.cloud_filtered, seger.cloud_plane);
+    pclpcl::extractNormals(false, idx_plane,
+                           seger.cloud_normals, normal_plane);
 
+    // (3) try to fit the cloud into a plane model
+    seger.fitPlane(false, normal_plane, seger.cloud_plane);
     auto plane1_coeffs = seger.coefficients_plane->values;
     auto plane1_normal = vector<float>(plane1_coeffs.begin(), plane1_coeffs.begin() + 3);
+
+    // calculate angle between desktop plane and the new segmented plane
     float angle = acos(dotProduct<float>(plane0_normal, plane1_normal));
     angle = radianToDegree(angle);
 
-    if (angle < 15) {
+    if (angle < 10) {
+      // use the cloud from the RegionGrowing
       PointColor obj_color(seger.cloud_plane, 60 + 40 * count, 100, 100+30);
       std::string objID = "plane_cloud_" + std::to_string(count++);
       viewer->addPointCloud<pcl::PointXYZ>(seger.cloud_plane, obj_color, objID);
 
       cout << "angle of two planes: " << angle
       << "; # of points: " << (seger.cloud_plane)->size() << endl;
+//      cout << (seger.idx_plane)->indices.size() << endl;
     }
 
   }
 
-//  float angle = 20;
-//  int i = 1;
-//  while (angle > 10) {
-//    if ((seger.cloud_filtered)->size() < 100) {
-//      break;
-//    }
-//    seger.segPlane(true);
-//
-//    auto plane1_coeffs = seger.coefficients_plane->values;
-//    auto plane1_normal = vector<float>(plane1_coeffs.begin(), plane1_coeffs.begin() + 3);
-//    angle = acos(dotProduct<float>(plane0_normal, plane1_normal));
-//    angle = radianToDegree(angle);
-//    cout << "angle of two planes: " << angle << "; # of points: " << (seger.cloud_plane)->size() << endl;
-//
-//    PointColor obj_color(seger.cloud_plane, 60 + 40 * i, 100, 100+30);
-//    std::string objID = "plane_cloud_" + std::to_string(i++);
-//    viewer->addPointCloud<pcl::PointXYZ>(seger.cloud_plane, obj_color, objID);
-//  }
-
-
-//
 //  pcl::PointCloud <pcl::PointXYZRGB>::Ptr colored_cloud = seger.reg.getColoredCloud();
 //  pcl::visualization::CloudViewer viewer ("Cluster viewer");
 //  viewer.showCloud(colored_cloud);
